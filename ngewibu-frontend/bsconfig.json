@@ -1,0 +1,29 @@
+{
+  "name": "ngewibu-frontend",
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    }
+  ],
+  "package-specs": [
+    {
+      "module": "es6",
+      "in-source": true
+    }
+  ],
+  "jsx": { "version": 4, "mode": "automatic" },
+  "bs-dependencies": ["@rescript/react"],
+  "suffix": ".bs.js",
+  "gentypeconfig": {
+    "language": "typescript",
+    "shims": {
+    },
+    "generatedFileExtension": ".gen.tsx",
+    "module": "es6",
+    "debug": {
+      "all": false,
+      "basic": false
+    }
+}
+}
