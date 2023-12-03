@@ -1,20 +1,19 @@
 rescript = 1
 g_finger := /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/@rescript/react/lib/ocaml/install.stamp
+g_finger := /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/@glennsl/rescript-fetch/lib/ocaml/install.stamp
+g_finger := /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/@glennsl/rescript-json-combinators/lib/ocaml/install.stamp
 rule astj
-  command = /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/rescript/darwinarm64/bsc.exe  -bs-v 10.1.4 -bs-jsx 4 -bs-jsx-mode automatic  -absname -bs-ast -o $out $i
+  command = /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/rescript/darwinarm64/bsc.exe  -bs-v 10.1.4 -bs-jsx 4 -bs-jsx-mode automatic -open JsonCombinators -absname -bs-ast -o $out $i
 o src/App.ast : astj ../../src/App.res
 rule deps
-  command = /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/rescript/darwinarm64/bsb_helper.exe -hash 4385644c7ede6d9ec11a6b04cd9f4d68 $in
+  command = /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/rescript/darwinarm64/bsb_helper.exe -hash ad846826f939f82a541f4d7d099d9258 $in
   restat = 1
 o src/App.d : deps src/App.ast
 rule mij
-  command = /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/rescript/darwinarm64/bsc.exe -I src/components -I src/assets -I src -I /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/@rescript/react/lib/ocaml   -bs-gentype -bs-package-name ngewibu-frontend -bs-package-output es6:$in_d:.bs.js -bs-v $g_finger $i
+  command = /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/rescript/darwinarm64/bsc.exe -I src/components -I src/assets -I src -I /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/@rescript/react/lib/ocaml -I /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/@glennsl/rescript-fetch/lib/ocaml -I /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/@glennsl/rescript-json-combinators/lib/ocaml -open JsonCombinators  -bs-package-name ngewibu-frontend -bs-package-output es6:$in_d:.bs.js -bs-v $g_finger $i
   dyndep = 1
   restat = 1
 o src/App.cmj src/App.cmi ../../src/App.bs.js : mij src/App.ast
 o src/main.ast : astj ../../src/main.res
 o src/main.d : deps src/main.ast
 o src/main.cmj src/main.cmi ../../src/main.bs.js : mij src/main.ast
-o src/components/Test.ast : astj ../../src/components/Test.res
-o src/components/Test.d : deps src/components/Test.ast
-o src/components/Test.cmj src/components/Test.cmi ../../src/components/Test.bs.js : mij src/components/Test.ast

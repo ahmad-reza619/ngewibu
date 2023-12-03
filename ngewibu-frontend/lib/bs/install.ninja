@@ -11,8 +11,4 @@ o main.cmi : cp ../bs/src/main.cmi
 o main.cmj : cp ../bs/src/main.cmj
 o main.cmt : cp ../bs/src/main.cmt
 o main.res : cp ../../src/main.res
-o Test.cmi : cp ../bs/src/components/Test.cmi
-o Test.cmj : cp ../bs/src/components/Test.cmj
-o Test.cmt : cp ../bs/src/components/Test.cmt
-o Test.res : cp ../../src/components/Test.res
-build install.stamp : touch App.cmi App.cmj main.cmi main.cmj Test.cmi Test.cmj 
+build install.stamp : touch App.cmi App.cmj main.cmi main.cmj 

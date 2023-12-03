@@ -13,17 +13,9 @@
     }
   ],
   "jsx": { "version": 4, "mode": "automatic" },
-  "bs-dependencies": ["@rescript/react"],
-  "suffix": ".bs.js",
-  "gentypeconfig": {
-    "language": "typescript",
-    "shims": {
-    },
-    "generatedFileExtension": ".gen.tsx",
-    "module": "es6",
-    "debug": {
-      "all": false,
-      "basic": false
-    }
-}
+  "bs-dependencies": ["@rescript/react", "@glennsl/rescript-fetch", "@glennsl/rescript-json-combinators"],
+  "bsc-flags": [
+        "-open JsonCombinators"
+       ],
+  "suffix": ".bs.js"
 }
