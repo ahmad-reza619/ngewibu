@@ -4,16 +4,37 @@ g_finger := /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node
 g_finger := /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/@glennsl/rescript-json-combinators/lib/ocaml/install.stamp
 rule astj
   command = /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/rescript/darwinarm64/bsc.exe  -bs-v 10.1.4 -bs-jsx 4 -bs-jsx-mode automatic -open JsonCombinators -absname -bs-ast -o $out $i
-o src/App.ast : astj ../../src/App.res
+o src/Api.ast : astj ../../src/Api.res
 rule deps
-  command = /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/rescript/darwinarm64/bsb_helper.exe -hash ad846826f939f82a541f4d7d099d9258 $in
+  command = /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/rescript/darwinarm64/bsb_helper.exe -hash a7c2cb15fb2b888bf2b443552890b02a $in
   restat = 1
-o src/App.d : deps src/App.ast
+o src/Api.d : deps src/Api.ast
 rule mij
-  command = /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/rescript/darwinarm64/bsc.exe -I src/components -I src/assets -I src -I /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/@rescript/react/lib/ocaml -I /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/@glennsl/rescript-fetch/lib/ocaml -I /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/@glennsl/rescript-json-combinators/lib/ocaml -open JsonCombinators  -bs-package-name ngewibu-frontend -bs-package-output es6:$in_d:.bs.js -bs-v $g_finger $i
+  command = /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/rescript/darwinarm64/bsc.exe -I src/page -I src/components -I src/assets -I src -I /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/@rescript/react/lib/ocaml -I /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/@glennsl/rescript-fetch/lib/ocaml -I /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/@glennsl/rescript-json-combinators/lib/ocaml -open JsonCombinators  -bs-package-name ngewibu-frontend -bs-package-output es6:$in_d:.bs.js -bs-v $g_finger $i
   dyndep = 1
   restat = 1
+o src/Api.cmj src/Api.cmi ../../src/Api.bs.js : mij src/Api.ast
+o src/App.ast : astj ../../src/App.res
+o src/App.d : deps src/App.ast
 o src/App.cmj src/App.cmi ../../src/App.bs.js : mij src/App.ast
 o src/main.ast : astj ../../src/main.res
 o src/main.d : deps src/main.ast
 o src/main.cmj src/main.cmi ../../src/main.bs.js : mij src/main.ast
+o src/Decode.ast : astj ../../src/Decode.res
+o src/Decode.d : deps src/Decode.ast
+o src/Decode.cmj src/Decode.cmi ../../src/Decode.bs.js : mij src/Decode.ast
+o src/components/Image.ast : astj ../../src/components/Image.res
+o src/components/Image.d : deps src/components/Image.ast
+o src/components/Image.cmj src/components/Image.cmi ../../src/components/Image.bs.js : mij src/components/Image.ast
+o src/page/Home.ast : astj ../../src/page/Home.res
+o src/page/Home.d : deps src/page/Home.ast
+o src/page/Home.cmj src/page/Home.cmi ../../src/page/Home.bs.js : mij src/page/Home.ast
+o src/page/Watch.ast : astj ../../src/page/Watch.res
+o src/page/Watch.d : deps src/page/Watch.ast
+o src/page/Watch.cmj src/page/Watch.cmi ../../src/page/Watch.bs.js : mij src/page/Watch.ast
+o src/page/NotFound.ast : astj ../../src/page/NotFound.res
+o src/page/NotFound.d : deps src/page/NotFound.ast
+o src/page/NotFound.cmj src/page/NotFound.cmi ../../src/page/NotFound.bs.js : mij src/page/NotFound.ast
+o src/page/AnimeEpisode.ast : astj ../../src/page/AnimeEpisode.res
+o src/page/AnimeEpisode.d : deps src/page/AnimeEpisode.ast
+o src/page/AnimeEpisode.cmj src/page/AnimeEpisode.cmi ../../src/page/AnimeEpisode.bs.js : mij src/page/AnimeEpisode.ast

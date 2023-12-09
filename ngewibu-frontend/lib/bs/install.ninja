@@ -3,6 +3,10 @@ rule cp
   command = cp $i $out
 rule touch
  command = touch $out
+o Api.cmi : cp ../bs/src/Api.cmi
+o Api.cmj : cp ../bs/src/Api.cmj
+o Api.cmt : cp ../bs/src/Api.cmt
+o Api.res : cp ../../src/Api.res
 o App.cmi : cp ../bs/src/App.cmi
 o App.cmj : cp ../bs/src/App.cmj
 o App.cmt : cp ../bs/src/App.cmt
@@ -11,4 +15,28 @@ o main.cmi : cp ../bs/src/main.cmi
 o main.cmj : cp ../bs/src/main.cmj
 o main.cmt : cp ../bs/src/main.cmt
 o main.res : cp ../../src/main.res
-build install.stamp : touch App.cmi App.cmj main.cmi main.cmj 
+o Decode.cmi : cp ../bs/src/Decode.cmi
+o Decode.cmj : cp ../bs/src/Decode.cmj
+o Decode.cmt : cp ../bs/src/Decode.cmt
+o Decode.res : cp ../../src/Decode.res
+o Image.cmi : cp ../bs/src/components/Image.cmi
+o Image.cmj : cp ../bs/src/components/Image.cmj
+o Image.cmt : cp ../bs/src/components/Image.cmt
+o Image.res : cp ../../src/components/Image.res
+o Home.cmi : cp ../bs/src/page/Home.cmi
+o Home.cmj : cp ../bs/src/page/Home.cmj
+o Home.cmt : cp ../bs/src/page/Home.cmt
+o Home.res : cp ../../src/page/Home.res
+o Watch.cmi : cp ../bs/src/page/Watch.cmi
+o Watch.cmj : cp ../bs/src/page/Watch.cmj
+o Watch.cmt : cp ../bs/src/page/Watch.cmt
+o Watch.res : cp ../../src/page/Watch.res
+o NotFound.cmi : cp ../bs/src/page/NotFound.cmi
+o NotFound.cmj : cp ../bs/src/page/NotFound.cmj
+o NotFound.cmt : cp ../bs/src/page/NotFound.cmt
+o NotFound.res : cp ../../src/page/NotFound.res
+o AnimeEpisode.cmi : cp ../bs/src/page/AnimeEpisode.cmi
+o AnimeEpisode.cmj : cp ../bs/src/page/AnimeEpisode.cmj
+o AnimeEpisode.cmt : cp ../bs/src/page/AnimeEpisode.cmt
+o AnimeEpisode.res : cp ../../src/page/AnimeEpisode.res
+build install.stamp : touch Api.cmi Api.cmj App.cmi App.cmj main.cmi main.cmj Decode.cmi Decode.cmj Image.cmi Image.cmj Home.cmi Home.cmj Watch.cmi Watch.cmj NotFound.cmi NotFound.cmj AnimeEpisode.cmi AnimeEpisode.cmj 
