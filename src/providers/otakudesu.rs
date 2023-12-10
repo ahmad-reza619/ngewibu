@@ -131,12 +131,12 @@ pub async fn get_anime(id: String) -> Anime {
     anime
 }
 
-pub async fn watch(slug: String) -> Anime {
-    let url = format!("{}{}{}", BASE_URL, "episode/", slug);
-    let response = reqwest::get(url).await.expect("Failed to send request");
-
-    let document = scraper::Html::parse_document(&response.text().await.expect("Failed to parse"));
-    let video_selector = scraper::Selector::parse("video.jw-video.jw-reset").unwrap();
-
-    let video_el = document.select(&video_selector).next().unwrap();
-}
+// pub async fn watch(slug: String) -> Anime {
+//     let url = format!("{}{}{}", BASE_URL, "episode/", slug);
+//     let response = reqwest::get(url).await.expect("Failed to send request");
+//
+//     let document = scraper::Html::parse_document(&response.text().await.expect("Failed to parse"));
+//     let video_selector = scraper::Selector::parse("video.jw-video.jw-reset").unwrap();
+//
+//     let video_el = document.select(&video_selector).next().unwrap();
+// }
