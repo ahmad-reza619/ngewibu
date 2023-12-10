@@ -2,7 +2,7 @@ mod providers;
 
 use actix_cors::Cors;
 use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
-use providers::mangabat::{get_manga_detail, get_manga_list};
+use providers::mangabat::{get_manga_chapter, get_manga_detail, get_manga_list};
 use providers::otakudesu::get_ongoing;
 use serde::Deserialize;
 
@@ -47,6 +47,12 @@ async fn manga_detail(manga: web::Json<MangaLink>) -> impl Responder {
     HttpResponse::Ok().json(detail)
 }
 
+#[post("/api/manga-chapter")]
+async fn manga_read(manga: web::Json<MangaLink>) -> impl Responder {
+    let detail = get_manga_chapter(manga.link.clone()).await;
+    HttpResponse::Ok().json(detail)
+}
+
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
@@ -59,6 +65,7 @@ async fn main() -> std::io::Result<()> {
             .service(anime_eps)
             .service(manga_list)
             .service(manga_detail)
+            .service(manga_read)
     })
     .bind(("127.0.0.1", 3000))?
     .run()

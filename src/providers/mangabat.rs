@@ -137,3 +137,37 @@ pub async fn get_manga_detail(url: String) -> MangaDetail {
         chapters: chapter_list,
     }
 }
+
+#[derive(Serialize)]
+pub struct MangaChapterDetail {
+    name: String,
+    pages: Vec<String>,
+}
+
+pub async fn get_manga_chapter(url: String) -> MangaChapterDetail {
+    let response = reqwest::get(url).await.expect("Failed to send request");
+
+    let document = scraper::Html::parse_document(&response.text().await.expect("Failed to parse"));
+    let title_selector = scraper::Selector::parse(".panel-chapter-info-top>h1").unwrap();
+    let pages_selector = scraper::Selector::parse(".container-chapter-reader>img").unwrap();
+
+    let title = document
+        .select(&title_selector)
+        .next()
+        .unwrap()
+        .text()
+        .next()
+        .unwrap();
+
+    let mut page_list: Vec<String> = Vec::new();
+
+    for pages in document.select(&pages_selector) {
+        let img = pages.value().attr("src").unwrap();
+        page_list.push(img.to_owned());
+    }
+
+    MangaChapterDetail {
+        name: title.to_owned(),
+        pages: page_list,
+    }
+}
