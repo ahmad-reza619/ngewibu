@@ -1,0 +1,8 @@
+procs:
+  server: " cargo run "
+  frontend:
+    shell: "npm run dev"
+    cwd: "./ngewibu-frontend/"
+  compiler:
+    shell: "npm run res:dev"
+    cwd: "./ngewibu-frontend/"
