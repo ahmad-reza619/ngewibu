@@ -6,7 +6,7 @@ rule astj
   command = /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/rescript/darwinarm64/bsc.exe  -bs-v 10.1.4 -bs-jsx 4 -bs-jsx-mode automatic -open JsonCombinators -absname -bs-ast -o $out $i
 o src/Api.ast : astj ../../src/Api.res
 rule deps
-  command = /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/rescript/darwinarm64/bsb_helper.exe -hash a7c2cb15fb2b888bf2b443552890b02a $in
+  command = /Users/ahmadreza/Developments/personal/ngewibu/ngewibu-frontend/node_modules/rescript/darwinarm64/bsb_helper.exe -hash 89688e1ad96cef602a0dbe27892f4b3e $in
   restat = 1
 o src/Api.d : deps src/Api.ast
 rule mij
@@ -35,6 +35,18 @@ o src/page/Watch.cmj src/page/Watch.cmi ../../src/page/Watch.bs.js : mij src/pag
 o src/page/NotFound.ast : astj ../../src/page/NotFound.res
 o src/page/NotFound.d : deps src/page/NotFound.ast
 o src/page/NotFound.cmj src/page/NotFound.cmi ../../src/page/NotFound.bs.js : mij src/page/NotFound.ast
+o src/page/AnimeList.ast : astj ../../src/page/AnimeList.res
+o src/page/AnimeList.d : deps src/page/AnimeList.ast
+o src/page/AnimeList.cmj src/page/AnimeList.cmi ../../src/page/AnimeList.bs.js : mij src/page/AnimeList.ast
+o src/page/MangaList.ast : astj ../../src/page/MangaList.res
+o src/page/MangaList.d : deps src/page/MangaList.ast
+o src/page/MangaList.cmj src/page/MangaList.cmi ../../src/page/MangaList.bs.js : mij src/page/MangaList.ast
+o src/page/MangaRead.ast : astj ../../src/page/MangaRead.res
+o src/page/MangaRead.d : deps src/page/MangaRead.ast
+o src/page/MangaRead.cmj src/page/MangaRead.cmi ../../src/page/MangaRead.bs.js : mij src/page/MangaRead.ast
+o src/page/MangaDetail.ast : astj ../../src/page/MangaDetail.res
+o src/page/MangaDetail.d : deps src/page/MangaDetail.ast
+o src/page/MangaDetail.cmj src/page/MangaDetail.cmi ../../src/page/MangaDetail.bs.js : mij src/page/MangaDetail.ast
 o src/page/AnimeEpisode.ast : astj ../../src/page/AnimeEpisode.res
 o src/page/AnimeEpisode.d : deps src/page/AnimeEpisode.ast
 o src/page/AnimeEpisode.cmj src/page/AnimeEpisode.cmi ../../src/page/AnimeEpisode.bs.js : mij src/page/AnimeEpisode.ast

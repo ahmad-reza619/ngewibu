@@ -1,1 +1,1 @@
-src/App.cmj : src/page/AnimeEpisode.cmj src/page/AnimeEpisode.cmi src/page/Home.cmj src/page/Home.cmi src/page/NotFound.cmj src/page/NotFound.cmi src/page/Watch.cmj src/page/Watch.cmi
+src/App.cmj : src/page/AnimeEpisode.cmj src/page/AnimeEpisode.cmi src/page/AnimeList.cmj src/page/AnimeList.cmi src/page/Home.cmj src/page/Home.cmi src/page/MangaDetail.cmj src/page/MangaDetail.cmi src/page/MangaList.cmj src/page/MangaList.cmi src/page/MangaRead.cmj src/page/MangaRead.cmi src/page/NotFound.cmj src/page/NotFound.cmi src/page/Watch.cmj src/page/Watch.cmi

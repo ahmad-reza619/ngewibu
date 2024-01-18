@@ -32,7 +32,13 @@ async fn anime_eps(path: web::Path<String>) -> impl Responder {
 
 #[get("/api/manga-list")]
 async fn manga_list() -> impl Responder {
-    let list = get_manga_list().await;
+    let list = match get_manga_list().await {
+        Ok(list) => list,
+        Err(err) => {
+            println!("{}", err);
+            return HttpResponse::InternalServerError().body("Internal Server Error");
+        }
+    };
     HttpResponse::Ok().json(list)
 }
 
@@ -43,13 +49,36 @@ struct MangaLink {
 
 #[post("/api/manga")]
 async fn manga_detail(manga: web::Json<MangaLink>) -> impl Responder {
-    let detail = get_manga_detail(manga.link.clone()).await;
+    use providers::mangabat::MangaBatError;
+    let detail = match get_manga_detail(manga.link.clone()).await {
+        Ok(detail) => detail,
+        Err(err) => {
+            println!("{}", err);
+            match err {
+                MangaBatError::RequestError(_) => {
+                    return HttpResponse::InternalServerError().body("Cannot get manga")
+                }
+                MangaBatError::ParsingError(_) => {
+                    return HttpResponse::InternalServerError().body("Cannot parse manga")
+                }
+                MangaBatError::FailedSelector => {
+                    return HttpResponse::InternalServerError().body("Failed to select")
+                }
+            }
+        }
+    };
     HttpResponse::Ok().json(detail)
 }
 
 #[post("/api/manga-chapter")]
 async fn manga_read(manga: web::Json<MangaLink>) -> impl Responder {
-    let detail = get_manga_chapter(manga.link.clone()).await;
+    let detail = match get_manga_chapter(manga.link.clone()).await {
+        Ok(detail) => detail,
+        Err(err) => {
+            println!("{}", err);
+            return HttpResponse::InternalServerError().body("Internal Server Error");
+        }
+    };
     HttpResponse::Ok().json(detail)
 }
 

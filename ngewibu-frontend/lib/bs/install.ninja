@@ -35,8 +35,24 @@ o NotFound.cmi : cp ../bs/src/page/NotFound.cmi
 o NotFound.cmj : cp ../bs/src/page/NotFound.cmj
 o NotFound.cmt : cp ../bs/src/page/NotFound.cmt
 o NotFound.res : cp ../../src/page/NotFound.res
+o AnimeList.cmi : cp ../bs/src/page/AnimeList.cmi
+o AnimeList.cmj : cp ../bs/src/page/AnimeList.cmj
+o AnimeList.cmt : cp ../bs/src/page/AnimeList.cmt
+o AnimeList.res : cp ../../src/page/AnimeList.res
+o MangaList.cmi : cp ../bs/src/page/MangaList.cmi
+o MangaList.cmj : cp ../bs/src/page/MangaList.cmj
+o MangaList.cmt : cp ../bs/src/page/MangaList.cmt
+o MangaList.res : cp ../../src/page/MangaList.res
+o MangaRead.cmi : cp ../bs/src/page/MangaRead.cmi
+o MangaRead.cmj : cp ../bs/src/page/MangaRead.cmj
+o MangaRead.cmt : cp ../bs/src/page/MangaRead.cmt
+o MangaRead.res : cp ../../src/page/MangaRead.res
+o MangaDetail.cmi : cp ../bs/src/page/MangaDetail.cmi
+o MangaDetail.cmj : cp ../bs/src/page/MangaDetail.cmj
+o MangaDetail.cmt : cp ../bs/src/page/MangaDetail.cmt
+o MangaDetail.res : cp ../../src/page/MangaDetail.res
 o AnimeEpisode.cmi : cp ../bs/src/page/AnimeEpisode.cmi
 o AnimeEpisode.cmj : cp ../bs/src/page/AnimeEpisode.cmj
 o AnimeEpisode.cmt : cp ../bs/src/page/AnimeEpisode.cmt
 o AnimeEpisode.res : cp ../../src/page/AnimeEpisode.res
-build install.stamp : touch Api.cmi Api.cmj App.cmi App.cmj main.cmi main.cmj Decode.cmi Decode.cmj Image.cmi Image.cmj Home.cmi Home.cmj Watch.cmi Watch.cmj NotFound.cmi NotFound.cmj AnimeEpisode.cmi AnimeEpisode.cmj 
+build install.stamp : touch Api.cmi Api.cmj App.cmi App.cmj main.cmi main.cmj Decode.cmi Decode.cmj Image.cmi Image.cmj Home.cmi Home.cmj Watch.cmi Watch.cmj NotFound.cmi NotFound.cmj AnimeList.cmi AnimeList.cmj MangaList.cmi MangaList.cmj MangaRead.cmi MangaRead.cmj MangaDetail.cmi MangaDetail.cmj AnimeEpisode.cmi AnimeEpisode.cmj 
